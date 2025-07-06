@@ -13,7 +13,7 @@ export default function App() {
     return (
       <Stack.Navigator>
         <Stack.Screen name="logIn" component={LogIn} options={{headerShown: false}}/>
-        <Stack.Screen name="home" component={Home} />
+        <Stack.Screen name="home" component={Home} options={{headerShown: false}} />
         {/* options={{headerShown: false}}   añadir eso despues de "Home" en la linea de arriba*/}
       </Stack.Navigator>
     );

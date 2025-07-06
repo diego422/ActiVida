@@ -1,31 +1,28 @@
 import { Text, StyleSheet, View, Image, TouchableOpacity, TextInput, Alert } from 'react-native'
 import React, { useState } from 'react'
-// import { TextInput } from 'react-native-gesture-handler'
-import {
-    useFonts,
-    Poly_400Regular,
-    Poly_400Regular_Italic,
-} from '@expo-google-fonts/poly';
+
 import app from '../accesofirebase'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 const auth = getAuth(app)
 
 export default function LogIn(props) {
 
+    //Credential authentication
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
-    const logIn = async()=>{
-        try{
+    const logIn = async () => {
+        try {
             await signInWithEmailAndPassword(auth, email, password)
             Alert.alert('Iniciando sesión', 'Accediendo...')
             props.navigation.navigate('home')
-        }catch(error){
-            console.log(error); 
+        } catch (error) {
+            console.log(error);
             Alert.alert('Error', 'El usuario o la contraseña son incorrectos')
         }
     }
 
+    //Display
     return (
         <View style={styles.container}>
             <View style={styles.logInBox}>
@@ -34,13 +31,13 @@ export default function LogIn(props) {
                 <View style={styles.inputBox}>
                     <Image source={require('../assets/Gmail.png')} style={styles.iconEnvelope}></Image>
                     <TextInput placeholder='Ingrese su correo' style={styles.placeholderText}
-                    onChangeText={(text)=>setEmail(text)}
+                        onChangeText={(text) => setEmail(text)}
                     />
                 </View>
                 <View style={styles.inputBox}>
                     <Image source={require('../assets/Candado.png')} style={styles.iconLock}></Image>
-                    <TextInput placeholder='Ingrese su contraseña' style={styles.placeholderText} 
-                    onChangeText={(text)=>setPassword(text)} secureTextEntry={true}
+                    <TextInput placeholder='Ingrese su contraseña' style={styles.placeholderText}
+                        onChangeText={(text) => setPassword(text)} secureTextEntry={true}
                     />
                 </View>
                 <TouchableOpacity style={styles.logInButtom} onPress={logIn}>
@@ -112,7 +109,7 @@ const styles = StyleSheet.create({
         height: 45,
         marginRight: 10
     },
-    iconLock:{
+    iconLock: {
         width: 35,
         height: 35,
         marginRight: 15,
@@ -144,17 +141,16 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontSize: 25,
-        fontFamily: 'Poly_400Regular',
     },
     forgotText: {
-        color: '#888888',
+        color: '#88888898',
         fontSize: 18,
         fontWeight: 'bold',
         marginTop: 20,
         textDecorationLine: 'underline',
     },
     registerText: {
-        color: '#4CAF5096',
+        color: '#888888',
         fontSize: 22,
         fontWeight: 'bold',
         marginTop: 150,

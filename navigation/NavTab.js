@@ -45,7 +45,7 @@ export default function NavTab() {
       })}
     >
       <Tab.Screen name="Inicio" component={Home} />
-      {/* <Tab.Screen name="Plan" component={Plan} /> */}
+      <Tab.Screen name="Plan" component={Plan} />
       <Tab.Screen name="Retos" component={Challenges} />
       {/* <Tab.Screen name="Progreso" component={Progress} /> */}
     </Tab.Navigator>

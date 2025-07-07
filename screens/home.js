@@ -1,11 +1,15 @@
 import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Home() {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.mainBox}>
                 <View style={styles.header}>
-                    <TouchableOpacity style={styles.userButtom}>
+                    <TouchableOpacity
+                        style={styles.userButtom}
+                        onPress={() => navigation.navigate('ViewUserInfo')}>
                         <Image source={require('../assets/userImage.png')} style={styles.userImage} />
                     </TouchableOpacity>
                     <Text style={styles.welcomeMsg}>Hola, Tiffany y Diego!</Text>
@@ -51,7 +55,7 @@ export default function Home() {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View style={{alignItems: 'center'}}>
+                <View style={{ alignItems: 'center' }}>
                     <View style={styles.quoteLabel}>
                         <Text style={styles.quoteText}>¡Cada paso cuenta! 💪</Text>
                     </View>
@@ -112,13 +116,13 @@ const styles = StyleSheet.create({
         height: 25,
         marginLeft: 10,
     },
-    userRangeLabel:{
+    userRangeLabel: {
         backgroundColor: '#4CAF50',
         borderRadius: 15,
         width: 110,
         height: 22,
-        justifyContent: 'center', 
-        alignItems: 'center',       
+        justifyContent: 'center',
+        alignItems: 'center',
         marginTop: 5,
         marginLeft: 10
     },
@@ -203,23 +207,23 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         width: 100,
         height: 22,
-        justifyContent: 'center', 
-        alignItems: 'center',       
+        justifyContent: 'center',
+        alignItems: 'center',
         marginTop: 15,
     },
     statusLabelText: {
         fontSize: 14,
     },
-    quoteLabel:{
-        backgroundColor:  '#4CAF50',
+    quoteLabel: {
+        backgroundColor: '#4CAF50',
         borderRadius: 15,
         width: 200,
         height: 40,
-        justifyContent: 'center', 
-        alignItems: 'center',       
+        justifyContent: 'center',
+        alignItems: 'center',
         marginTop: 30,
     },
-    quoteText:{
+    quoteText: {
         fontSize: 17,
     }
 });

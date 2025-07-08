@@ -7,10 +7,10 @@ export default function ViewUser() {
     return (
         <View style={styles.container}>
             <View style={styles.mainBox}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Text>Back</Text>
-                </TouchableOpacity>
                 <View style={styles.header}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Image source={require('../assets/backButton.png')} style={styles.backButton} />
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.userButtom}>
                         <Image source={require('../assets/userImage.png')} style={styles.userImage} />
                     </TouchableOpacity>
@@ -38,31 +38,34 @@ export default function ViewUser() {
                 </View>
                 <View style={styles.stats}>
                     <TouchableOpacity
-                        style={styles.statButtom}>
+                        style={styles.statButtom}
+                        onPress={() => navigation.navigate('CompleteChallenges')}>
                         <View style={styles.statButtomLeft}>
                             <Text style={styles.statCardText}>Retos completados</Text>
                         </View>
                         <View style={styles.statButtomRight}>
                             <Text style={[styles.statCardText, { fontWeight: 'bold' }]}>10</Text>
+                            <Image source={require('../assets/blueArrow.png')} style={styles.blueArrow} />
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.statButtom}
-                        onPress={() => navigation.navigate('awards')}>
+                        onPress={() => navigation.navigate('Awards')}>
                         <View style={styles.statButtomLeft}>
                             <Text style={styles.statCardText}>Recompensas obtenidas</Text>
                         </View>
                         <View style={styles.statButtomRight}>
                             <Text style={[styles.statCardText, { fontWeight: 'bold' }]}>5</Text>
+                            <Image source={require('../assets/blueArrow.png')} style={styles.blueArrow} />
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.statButtom}>
+                    <View style={[styles.statButtom, {paddingRight: 15}]}>
                         <View style={styles.statButtomLeft}>
                             <Text style={styles.statCardText}>Puntos obtenidos</Text>
                         </View>
                         <View style={styles.statButtomRight}>
                             <Text style={[styles.statCardText, { fontWeight: 'bold' }]}>100</Text>
                         </View>
-                    </TouchableOpacity>
+                    </View>
                 </View>
 
                 <TouchableOpacity style={{ alignItems: 'center' }}>
@@ -83,25 +86,29 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     mainBox: {
+        flex: 1,
         width: '85%',
-        height: '100%',
         marginTop: 70,
-        backgroundColor: 'white',
+        marginBottom: 30,
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        padding: 10,
         shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
+        shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
     },
     header: {
-        padding: 10,
         flexDirection: 'row',
         height: 100,
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+    },
+    backButton: {
+        width: 30,
+        height: 30,
+        marginRight: 10,
     },
     userButtom: {
         width: 70,
@@ -109,7 +116,7 @@ const styles = StyleSheet.create({
         borderRadius: 40,
         backgroundColor: '#D9D9D9',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     userImage: {
         width: 50,
@@ -117,14 +124,15 @@ const styles = StyleSheet.create({
     },
     userName: {
         color: '#4A4A4A',
-        fontSize: 23,
+        fontSize: 20,
         fontWeight: 'bold',
         marginLeft: 8,
     },
     bellImage: {
         width: 25,
         height: 25,
-        marginLeft: 40,
+        marginLeft: 'auto',
+        marginRight: 20,
     },
     editButtom: {
         backgroundColor: 'white',
@@ -156,19 +164,17 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 190,
         padding: 20,
-        marginBottom: 0
+
     },
     infoContainerLeft: {
         width: '50%',
         textAlign: 'left',
-        // backgroundColor: '#B9B9B9',
         alignItems: 'flex-start',
         justifyContent: 'center',
     },
     infoContainerRight: {
         width: '50%',
         textAlign: 'right',
-        // backgroundColor: '#D4D4D4',
         alignItems: 'flex-end',
         justifyContent: 'center',
     },
@@ -180,7 +186,6 @@ const styles = StyleSheet.create({
         height: 280,
         width: '100%',
         marginBottom: 15,
-        // backgroundColor: '#D4D4D4'
     },
     statButtom: {
         flexDirection: 'row',
@@ -201,12 +206,20 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
         paddingHorizontal: 15,
+        paddingRight: 0,
     },
     statButtomLeft: {
         width: 120,
     },
     statButtomRight: {
-        marginRight: 20,
+        flexDirection: 'row',
+        // marginRight: 5,
+        gap: 10,
+        alignItems: 'center'
+    },
+    blueArrow: {
+        width: 40,
+        height: 40,
     },
     statCardText: {
         fontSize: 18,
@@ -219,7 +232,7 @@ const styles = StyleSheet.create({
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 30,
+        marginTop: 10,
         borderColor: '#000',
         borderWidth: 1,
         shadowColor: '#000',

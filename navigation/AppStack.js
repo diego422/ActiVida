@@ -3,8 +3,9 @@ import NavTab from "./NavTab";
 import ModifyPlan from "../screens/modifyPlan";
 import ViewUser from "../screens/viewUser";
 import AwardsPage from "../screens/awards";
-import EditExercise from "../screens/editExercise";
-import AddExercise from "../screens/addExercise";
+import EditExercise from "../screens/EditExercise";
+import AddExercise from "../screens/AddExercise";
+import CompleteChallenges from "../screens/completeChallenges";
 const Stack = createNativeStackNavigator();
 
 export default function AppStack() {
@@ -15,7 +16,8 @@ export default function AppStack() {
             <Stack.Screen name="EditExercise" component={EditExercise} />
             <Stack.Screen name="AddExercise" component={AddExercise} />
             <Stack.Screen name="ViewUserInfo" component={ViewUser} />
-            <Stack.Screen name="awards" component={AwardsPage} />
+            <Stack.Screen name="Awards" component={AwardsPage} />
+            <Stack.Screen name="CompleteChallenges" component={CompleteChallenges} />
             {/* Falta añadir el de usuario acá */}
         </Stack.Navigator>
     );

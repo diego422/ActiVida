@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '85%',
     marginTop: 70,
-    marginBottom: 20,
+    marginBottom: 30,
     backgroundColor: '#fff',
     borderRadius: 20,
     padding: 15,
@@ -186,15 +186,15 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     height: 100,
-    marginBottom: 10,
+    alignItems: 'center',
+    width: '100%',
+    paddingHorizontal: 10,
   },
   userButtom: {
     width: 70,
     height: 70,
-    borderRadius: 35,
+    borderRadius: 40,
     backgroundColor: '#D9D9D9',
     alignItems: 'center',
     justifyContent: 'center',
@@ -203,20 +203,21 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  bellImage: {
+    width: 25,
+    height: 25,
+    marginLeft: 'auto'
+  },
   userRangeLabel: {
     backgroundColor: '#4CAF50',
     borderRadius: 15,
     paddingHorizontal: 10,
     paddingVertical: 3,
+    marginLeft: 20,
   },
   rangeLabelText: {
-    color: 'white',
     fontSize: 14,
-    fontWeight: 'bold',
-  },
-  bellImage: {
-    width: 25,
-    height: 25,
+    color: 'white',
   },
   title: {
     fontSize: 20,

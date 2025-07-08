@@ -114,7 +114,8 @@ const styles = StyleSheet.create({
         height: '100%',
         marginTop: 70,
         backgroundColor: 'white',
-        borderRadius: 15,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
         paddingHorizontal: 15,
         paddingVertical: 15,
         shadowColor: '#000',
@@ -131,7 +132,6 @@ const styles = StyleSheet.create({
         height: 100,
         alignItems: 'center',
         width: '100%',
-        justifyContent: 'space-between',
         paddingHorizontal: 10,
     },
     userButtom: {
@@ -149,12 +149,14 @@ const styles = StyleSheet.create({
     bellImage: {
         width: 25,
         height: 25,
+        marginLeft: 'auto'
     },
     userRangeLabel: {
         backgroundColor: '#4CAF50',
         borderRadius: 15,
         paddingHorizontal: 10,
         paddingVertical: 3,
+        marginLeft: 10,
     },
     rangeLabelText: {
         fontSize: 14,
@@ -204,6 +206,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         marginBottom: 15,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 5,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,

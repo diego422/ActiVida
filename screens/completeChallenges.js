@@ -1,7 +1,7 @@
 import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function AwardsPage() {
+export default function CompleteChallenges() {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
@@ -21,42 +21,33 @@ export default function AwardsPage() {
                     </View>
                     <Image source={require('../assets/bell.png')} style={styles.bellImage} />
                 </View>
-                <Text style={styles.title}>Recompensas</Text>
+                <Text style={styles.title}>Retos completados</Text>
 
                 <View style={styles.awardLabel}>
                     <View style={styles.awardLeftContainer}>
-                        <Image source={require('../assets/medal.png')} style={styles.awardIcon} />
-                    </View>
-                    <View style={styles.awardCenterContainer}>
-                        <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>Comienza tu viaje</Text>
-                        <Text style={styles.awardLabelText}>Completaste el primer reto</Text>
+                        <Image source={require('../assets/walkIcon.png')} style={styles.awardIcon} />
                     </View>
                     <View style={styles.awardRightContainer}>
-                        <Image source={require('../assets/completeIcon.png')} style={styles.completeIcon} />
+                        <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>Caminar 3 KM</Text>
+                        <Text style={styles.awardLabelText}>Completado el 23 de mayo 2025</Text>
                     </View>
                 </View>
                 <View style={styles.awardLabel}>
                     <View style={styles.awardLeftContainer}>
-                        <Image source={require('../assets/fire.png')} style={styles.awardIcon} />
-                    </View>
-                    <View style={styles.awardCenterContainer}>
-                        <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>Cinco días seguidos</Text>
-                        <Text style={styles.awardLabelText}>Lograste una racha de 5 días</Text>
+                        <Image source={require('../assets/stretchPlan.png')} style={styles.awardIcon} />
                     </View>
                     <View style={styles.awardRightContainer}>
-                        <Image source={require('../assets/completeIcon.png')} style={styles.completeIcon} />
+                        <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>15 min estiramiento</Text>
+                        <Text style={styles.awardLabelText}>Completado el 23 de mayo 2025</Text>
                     </View>
                 </View>
                 <View style={styles.awardLabel}>
                     <View style={styles.awardLeftContainer}>
-                        <Image source={require('../assets/trophyLock.png')} style={styles.awardIcon} />
-                    </View>
-                    <View style={styles.awardCenterContainer}>
-                        <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>Máxima racha</Text>
-                        <Text style={styles.awardLabelText}>Supera tu mejor racha anterior</Text>
+                        <Image source={require('../assets/walkIcon.png')} style={styles.awardIcon} />
                     </View>
                     <View style={styles.awardRightContainer}>
-                        <Image source={require('../assets/lock.png')} style={styles.completeIcon} />
+                        <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>Correr 3 km</Text>
+                        <Text style={styles.awardLabelText}>Completado el 25 de mayo 2025</Text>
                     </View>
                 </View>
             </View>
@@ -134,7 +125,7 @@ const styles = StyleSheet.create({
     },
     awardLabel: {
         flexDirection: 'row',
-        height: 120,
+        height: 90,
         backgroundColor: 'white',
         marginTop: 30,
         marginLeft: 8,
@@ -154,25 +145,20 @@ const styles = StyleSheet.create({
         width: 70
     },
     awardIcon: {
-        width: 45,
-        height: 45,
-    },
-    awardCenterContainer: {
-        width: 185,
-        justifyContent: 'center',
-        gap: 15,
+        width: 48,
+        height: 65,
     },
     awardRightContainer: {
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        width: 20,
-        marginBottom: 10,
+        width: 225,
+        justifyContent: 'center',
+        gap: 10,
+        // backgroundColor: '#B9B9B9'
     },
     completeIcon: {
         width: 40,
         height: 40,
     },
     awardLabelText: {
-        fontSize: 19,
+        fontSize: 18,
     },
 });

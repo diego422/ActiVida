@@ -3,14 +3,14 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function Progress() {
     const navigation = useNavigation();
-    
+
     return (
         <View style={styles.container}>
             <View style={styles.mainBox}>
                 {/* HEADER */}
                 <View style={styles.header}>
                     <TouchableOpacity style={styles.userButton}
-                         onPress={() => navigation.navigate('ViewUserInfo')}>
+                        onPress={() => navigation.navigate('ViewUserInfo')}>
                         <Image
                             source={require('../assets/userImage.png')}
                             style={styles.userImage}
@@ -98,13 +98,16 @@ const styles = StyleSheet.create({
         width: '85%',
         height: '100%',
         marginTop: 70,
-        marginBottom: 20,
         backgroundColor: 'white',
-        borderRadius: 15,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
         paddingHorizontal: 15,
         paddingVertical: 15,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
@@ -115,10 +118,8 @@ const styles = StyleSheet.create({
         height: 100,
         alignItems: 'center',
         width: '100%',
-        justifyContent: 'space-between',
         paddingHorizontal: 10,
     },
-
     userButton: {
         width: 70,
         height: 70,
@@ -127,24 +128,22 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-
     userImage: {
         width: 50,
         height: 50,
     },
-
     bellImage: {
         width: 25,
         height: 25,
+        marginLeft: 'auto'
     },
-
     userRangeLabel: {
         backgroundColor: '#4CAF50',
         borderRadius: 15,
         paddingHorizontal: 10,
         paddingVertical: 3,
+        marginLeft: 10,
     },
-
     rangeLabelText: {
         fontSize: 14,
         color: 'white',
@@ -264,8 +263,8 @@ const styles = StyleSheet.create({
     },
 
     arrow: {
-    fontSize: 14,
-    color: '#333',
-    marginLeft: 5,
-},
+        fontSize: 14,
+        color: '#333',
+        marginLeft: 5,
+    },
 });

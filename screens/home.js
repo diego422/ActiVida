@@ -12,7 +12,7 @@ export default function Home() {
                         onPress={() => navigation.navigate('ViewUserInfo')}>
                         <Image source={require('../assets/userImage.png')} style={styles.userImage} />
                     </TouchableOpacity>
-                    <Text style={styles.welcomeMsg}>Hola, Tiffany y Diego!</Text>
+                    <Text style={styles.welcomeMsg}>Hola, Diego!</Text>
                     <Image source={require('../assets/bell.png')} style={styles.bellImage} />
                 </View>
                 <View style={styles.userRangeLabel}>
@@ -73,10 +73,15 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     mainBox: {
+        flex: 1,
         width: '85%',
         height: '100%',
         marginTop: 70,
         backgroundColor: 'white',
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+        paddingHorizontal: 15,
+        paddingVertical: 15,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -114,7 +119,7 @@ const styles = StyleSheet.create({
     bellImage: {
         width: 25,
         height: 25,
-        marginLeft: 10,
+        marginLeft: 'auto'
     },
     userRangeLabel: {
         backgroundColor: '#4CAF50',
@@ -123,11 +128,12 @@ const styles = StyleSheet.create({
         height: 22,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 5,
+        marginTop: 10,
         marginLeft: 10
     },
     rangeLabelText: {
         fontSize: 14,
+        color: '#fff'
     },
     title: {
         color: '#000',
@@ -213,6 +219,7 @@ const styles = StyleSheet.create({
     },
     statusLabelText: {
         fontSize: 14,
+        color: '#fff',
     },
     quoteLabel: {
         backgroundColor: '#4CAF50',
@@ -221,9 +228,10 @@ const styles = StyleSheet.create({
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 30,
+        marginTop: 20,
     },
     quoteText: {
         fontSize: 17,
+        color: '#fff',
     }
 });

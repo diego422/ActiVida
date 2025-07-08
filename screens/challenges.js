@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function Challenges() {
     const navigation = useNavigation();
-    
+
     return (
         <View style={styles.container}>
             <View style={styles.mainBox}>
@@ -20,7 +20,9 @@ export default function Challenges() {
                 </View>
 
                 {/* TÍTULO */}
-                <Text style={styles.title}>Retos disponibles</Text>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>Retos disponibles</Text>
+                </View>
 
                 {/* TABS */}
                 <View style={styles.tabsContainer}>
@@ -88,7 +90,8 @@ const styles = StyleSheet.create({
         height: '100%',
         marginTop: 70,
         backgroundColor: 'white',
-        borderRadius: 15,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
         paddingHorizontal: 15,
         paddingVertical: 15,
         shadowColor: '#000',
@@ -105,7 +108,6 @@ const styles = StyleSheet.create({
         height: 100,
         alignItems: 'center',
         width: '100%',
-        justifyContent: 'space-between',
         paddingHorizontal: 10,
     },
     userButtom: {
@@ -123,29 +125,40 @@ const styles = StyleSheet.create({
     bellImage: {
         width: 25,
         height: 25,
+        marginLeft: 'auto'
     },
     userRangeLabel: {
         backgroundColor: '#4CAF50',
         borderRadius: 15,
         paddingHorizontal: 10,
         paddingVertical: 3,
+        marginLeft: 10,
     },
     rangeLabelText: {
         fontSize: 14,
         color: 'white',
     },
-    title: {
-        color: '#000',
-        fontWeight: 'bold',
-        fontSize: 20,
+    titleContainer: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         marginTop: 10,
-        marginLeft: 10,
+        marginBottom: 15,
+    },
+
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#000',
+        textAlign: 'left',
+        alignSelf: 'flex-start',
     },
     tabsContainer: {
         flexDirection: 'row',
         marginTop: 10,
         marginBottom: 20,
         paddingHorizontal: 10,
+        justifyContent: 'center'
     },
     tab: {
         borderWidth: 1,

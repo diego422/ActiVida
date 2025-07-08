@@ -237,7 +237,6 @@ const styles = StyleSheet.create({
   levelTabs: {
     flexDirection: 'row',
     marginBottom: 10,
-    marginLeft: 5,
   },
   levelButton: {
     borderWidth: 1,

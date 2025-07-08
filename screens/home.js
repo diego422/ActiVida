@@ -21,12 +21,16 @@ export default function Home() {
                 <View style={styles.challeges}>
                     <Text style={styles.title}>Retos de hoy</Text>
                     <View style={styles.cardsContainer}>
-                        <TouchableOpacity style={styles.cards}>
+                        <TouchableOpacity 
+                        style={styles.cards}
+                        onPress={() => navigation.navigate('Retos')}>
                             <Image source={require('../assets/walkIcon.png')} style={styles.userImage} />
                             <Text style={styles.textCard}>Caminar</Text>
                             <Text style={styles.textCard}>3 KM</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.cards}>
+                        <TouchableOpacity 
+                        style={styles.cards}
+                        onPress={() => navigation.navigate('Retos')}>
                             <Text style={styles.textCard}>15 min de estiramiento</Text>
                             <View style={styles.statusLabel}>
                                 <Text style={styles.statusLabelText}>Completado</Text>
@@ -37,7 +41,9 @@ export default function Home() {
                 </View>
                 <View style={styles.plans}>
                     <Text style={styles.title}>Tu Plan personalizado</Text>
-                    <TouchableOpacity style={styles.planButtom}>
+                    <TouchableOpacity 
+                    style={styles.planButtom}
+                    onPress={() => navigation.navigate('Plan')}>
                         <Text style={styles.planButtomText}>Plan Día 3: Cardio</Text>
                         <Image source={require('../assets/blueArrow.png')} style={styles.blueArrow} />
                     </TouchableOpacity>
@@ -45,14 +51,14 @@ export default function Home() {
                 <View>
                     <Text style={styles.title}>Tu Actividad</Text>
                     <View style={styles.cardsContainer}>
-                        <TouchableOpacity style={styles.cards}>
+                        <View style={styles.cards}>
                             <Text style={styles.textCard}>Distancia recorrida</Text>
                             <Text style={[styles.textCard, { marginTop: 20 }]}>1,5 KM</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.cards}>
+                        </View>
+                        <View style={styles.cards}>
                             <Text style={styles.textCard}>Tiempo de ejercicio</Text>
                             <Text style={[styles.textCard, { marginTop: 20 }]}>45 min</Text>
-                        </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
                 <View style={{ alignItems: 'center' }}>

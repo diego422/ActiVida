@@ -1,5 +1,4 @@
 import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native'
-import React, { Component } from 'react'
 import { useNavigation } from '@react-navigation/native';
 
 

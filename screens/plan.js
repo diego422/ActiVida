@@ -1,8 +1,39 @@
-import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Text, StyleSheet, View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import appFirebase from '../accesofirebase';
+import { useState, useCallback } from 'react';
+
+const db = getFirestore(appFirebase);
+
+const iconMap = {
+    cardioPlan: require("../assets/cardioPlan.png"),
+    stretchPlan: require("../assets/stretchPlan.png"),
+    strengthPlan: require("../assets/strengthPlan.png"),
+};
 
 export default function Plan() {
     const navigation = useNavigation();
+    const [exercises, setExercises] = useState([]);
+
+    useFocusEffect(
+        useCallback(() => {
+            obtenerEjercicios();
+        }, [])
+    );
+
+    const obtenerEjercicios = async () => {
+        const snapshot = await getDocs(collection(db, "modificarPlan"));
+        const data = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        setExercises(data);
+    };
+
+    const obtenerIcono = (iconName) => {
+        return iconMap[iconName] || iconMap.cardioPlan;
+    };
 
     return (
         <View style={styles.container}>
@@ -34,47 +65,27 @@ export default function Plan() {
                 <Text style={styles.levelText}>Nivel actual: Intermedio</Text>
 
                 {/* DIAS DEL PLAN */}
-                <View style={styles.planCard}>
-                    <Image
-                        source={require('../assets/cardioPlan.png')}
-                        style={styles.planIcon}
-                    />
-                    <View style={styles.planCardContent}>
-                        <Text style={styles.planCardTitle}>Día 1: Cardio suave</Text>
-                        <Text style={styles.planCardSubtitle}>20 min</Text>
-                    </View>
-                    <TouchableOpacity>
-                        <Text style={styles.detailLink}>Ver detalles</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.planCard}>
-                    <Image
-                        source={require('../assets/stretchPlan.png')}
-                        style={styles.planIcon}
-                    />
-                    <View style={styles.planCardContent}>
-                        <Text style={styles.planCardTitle}>Día 2: Estiramiento</Text>
-                        <Text style={styles.planCardSubtitle}>15 min</Text>
-                    </View>
-                    <TouchableOpacity>
-                        <Text style={styles.detailLink}>Ver detalles</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.planCard}>
-                    <Image
-                        source={require('../assets/strengthPlan.png')}
-                        style={styles.planIcon}
-                    />
-                    <View style={styles.planCardContent}>
-                        <Text style={styles.planCardTitle}>Día 3: Fuerza</Text>
-                        <Text style={styles.planCardSubtitle}>30 min</Text>
-                    </View>
-                    <TouchableOpacity>
-                        <Text style={styles.detailLink}>Ver detalles</Text>
-                    </TouchableOpacity>
-                </View>
+                <ScrollView>
+                    {exercises.map((item) => (
+                        <View key={item.id} style={styles.planCard}>
+                            <Image
+                                source={obtenerIcono(item.icono)}
+                                style={styles.planIcon}
+                            />
+                            <View style={styles.planCardContent}>
+                                <Text style={styles.planCardTitle}>
+                                    Día {item.dia}: {item.nombre}
+                                </Text>
+                                <Text style={styles.planCardSubtitle}>
+                                    {item.tiempo} min
+                                </Text>
+                            </View>
+                            <TouchableOpacity>
+                                <Text style={styles.detailLink}>Ver detalles</Text>
+                            </TouchableOpacity>
+                        </View>
+                    ))}
+                </ScrollView>
 
                 {/* BOTÓN MODIFICAR PLAN */}
                 <TouchableOpacity
@@ -83,6 +94,7 @@ export default function Plan() {
                 >
                     <Text style={styles.modifyButtonText}>Modificar plan</Text>
                 </TouchableOpacity>
+
             </View>
         </View>
     );

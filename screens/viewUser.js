@@ -1,9 +1,22 @@
-import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native'
+import { Text, StyleSheet, View, TouchableOpacity, Image, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { getAuth, signOut } from "firebase/auth";
 
 export default function ViewUser() {
     const navigation = useNavigation();
+    const auth = getAuth();
+
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                navigation.navigate('logIn');
+            })
+            .catch((error) => {
+                console.log(error);
+                Alert.alert("Error", "No se pudo cerrar sesión");
+            });
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.mainBox}>
@@ -17,11 +30,13 @@ export default function ViewUser() {
                     <Text style={styles.userName}>Diego Herrera</Text>
                     <Image source={require('../assets/bell.png')} style={styles.bellImage} />
                 </View>
+
                 <View style={{ alignItems: 'center' }}>
                     <TouchableOpacity style={styles.editButtom}>
                         <Text style={styles.editButtomText}>Editar información</Text>
                     </TouchableOpacity>
                 </View>
+
                 <View style={styles.mainInfoContainer}>
                     <View style={styles.infoContainerLeft}>
                         <Text style={styles.infoText}>Usuario</Text>
@@ -36,6 +51,7 @@ export default function ViewUser() {
                         <Text style={styles.infoText}>Principiante</Text>
                     </View>
                 </View>
+
                 <View style={styles.stats}>
                     <TouchableOpacity
                         style={styles.statButtom}
@@ -48,7 +64,9 @@ export default function ViewUser() {
                             <Image source={require('../assets/blueArrow.png')} style={styles.blueArrow} />
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.statButtom}
+
+                    <TouchableOpacity
+                        style={styles.statButtom}
                         onPress={() => navigation.navigate('Awards')}>
                         <View style={styles.statButtomLeft}>
                             <Text style={styles.statCardText}>Recompensas obtenidas</Text>
@@ -58,7 +76,8 @@ export default function ViewUser() {
                             <Image source={require('../assets/blueArrow.png')} style={styles.blueArrow} />
                         </View>
                     </TouchableOpacity>
-                    <View style={[styles.statButtom, {paddingRight: 15}]}>
+
+                    <View style={[styles.statButtom, { paddingRight: 15 }]}>
                         <View style={styles.statButtomLeft}>
                             <Text style={styles.statCardText}>Puntos obtenidos</Text>
                         </View>
@@ -68,7 +87,7 @@ export default function ViewUser() {
                     </View>
                 </View>
 
-                <TouchableOpacity style={{ alignItems: 'center' }}>
+                <TouchableOpacity style={{ alignItems: 'center' }} onPress={handleLogout}>
                     <View style={styles.logOutButtom}>
                         <Text style={styles.logOutText}>Cerrar sesión</Text>
                     </View>
@@ -164,7 +183,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 190,
         padding: 20,
-
     },
     infoContainerLeft: {
         width: '50%',
@@ -213,9 +231,8 @@ const styles = StyleSheet.create({
     },
     statButtomRight: {
         flexDirection: 'row',
-        // marginRight: 5,
         gap: 10,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     blueArrow: {
         width: 40,
@@ -246,5 +263,7 @@ const styles = StyleSheet.create({
     },
     logOutText: {
         fontSize: 19,
+        color: 'white',
+        fontWeight: 'bold',
     }
 });

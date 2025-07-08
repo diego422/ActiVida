@@ -6,6 +6,7 @@ import AwardsPage from "../screens/awards";
 import EditExercise from "../screens/editExercise";
 import AddExercise from "../screens/addExercise";
 import CompleteChallenges from "../screens/completeChallenges";
+import LogIn from "../screens/logIn";
 const Stack = createNativeStackNavigator();
 
 export default function AppStack() {
@@ -18,6 +19,7 @@ export default function AppStack() {
             <Stack.Screen name="ViewUserInfo" component={ViewUser} />
             <Stack.Screen name="Awards" component={AwardsPage} />
             <Stack.Screen name="CompleteChallenges" component={CompleteChallenges} />
+            <Stack.Screen name="logIn" component={LogIn} />
             {/* Falta añadir el de usuario acá */}
         </Stack.Navigator>
     );

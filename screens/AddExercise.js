@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, StyleSheet, TextInput, Image, ScrollView,
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import appFirebase from "../accesofirebase";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const db = getFirestore(appFirebase);
 
@@ -36,54 +37,81 @@ export default function AddExercise() {
     };
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.title}>Agregar Ejercicio</Text>
-
-            <TextInput
-                placeholder="Día (ej. 1)"
-                style={styles.input}
-                value={dia}
-                onChangeText={setDia}
-                keyboardType="numeric"
-            />
-            <TextInput
-                placeholder="Nombre ejercicio"
-                style={styles.input}
-                value={nombre}
-                onChangeText={setNombre}
-            />
-            <TextInput
-                placeholder="Tiempo (min)"
-                style={styles.input}
-                value={tiempo}
-                onChangeText={setTiempo}
-                keyboardType="numeric"
-            />
-
-            <Text style={styles.subtitle}>Selecciona un icono:</Text>
-            <View style={styles.iconsRow}>
-                {availableIcons.map((icon) => (
-                    <TouchableOpacity
-                        key={icon.name}
-                        onPress={() => setSelectedIcon(icon.name)}
-                        style={[
-                            styles.iconBox,
-                            selectedIcon === icon.name && styles.activeIconBox,
-                        ]}
-                    >
-                        <Image source={icon.image} style={styles.iconImage} />
-                    </TouchableOpacity>
-                ))}
+        <SafeAreaView style={styles.safeArea}>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Image source={require('../assets/backButton.png')} style={styles.backButton} />
+                </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.saveButton} onPress={handleGuardar}>
-                <Text style={styles.saveButtonText}>Guardar Ejercicio</Text>
-            </TouchableOpacity>
-        </ScrollView>
+            <ScrollView contentContainerStyle={styles.container}>
+
+                <Text style={styles.title}>Agregar Ejercicio</Text>
+
+                <TextInput
+                    placeholder="Día (ej. 1)"
+                    style={styles.input}
+                    value={dia}
+                    onChangeText={setDia}
+                    keyboardType="numeric"
+                />
+                <TextInput
+                    placeholder="Nombre ejercicio"
+                    style={styles.input}
+                    value={nombre}
+                    onChangeText={setNombre}
+                />
+                <TextInput
+                    placeholder="Tiempo (min)"
+                    style={styles.input}
+                    value={tiempo}
+                    onChangeText={setTiempo}
+                    keyboardType="numeric"
+                />
+
+                <Text style={styles.subtitle}>Selecciona un icono:</Text>
+                <View style={styles.iconsRow}>
+                    {availableIcons.map((icon) => (
+                        <TouchableOpacity
+                            key={icon.name}
+                            onPress={() => setSelectedIcon(icon.name)}
+                            style={[
+                                styles.iconBox,
+                                selectedIcon === icon.name && styles.activeIconBox,
+                            ]}
+                        >
+                            <Image source={icon.image} style={styles.iconImage} />
+                        </TouchableOpacity>
+                    ))}
+                </View>
+
+                <TouchableOpacity style={styles.saveButton} onPress={handleGuardar}>
+                    <Text style={styles.saveButtonText}>Guardar Ejercicio</Text>
+                </TouchableOpacity>
+            </ScrollView>
+        </SafeAreaView>
+
     );
 }
 
 const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        backgroundColor: "#fff",
+    },
+
+    buttonContainer: {
+        justifyContent: 'flex-start',
+        marginLeft: 20,
+        marginTop: 10,
+    },
+
+    backButton: {
+        width: 30,
+        height: 30,
+        marginRight: 10,
+    },
+
     container: {
         alignItems: "center",
         padding: 20,

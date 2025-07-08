@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
     },
     logInBox: {
         width: '85%',
-        height: '80%',
+        height: '85%',
+        marginTop: 30,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
         color: '#888888',
         fontSize: 22,
         fontWeight: 'bold',
-        marginTop: 150,
+        marginTop: 170,
         textDecorationLine: 'underline',
     }
 

@@ -87,7 +87,13 @@ export default function EditExercise() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image source={require('../assets/backButton.png')} style={styles.backButton} />
+        </TouchableOpacity>
+      </View>
       <ScrollView contentContainerStyle={styles.container}>
+
         <Text style={styles.title}>Editar Ejercicio</Text>
 
         <Text style={styles.label}>Día:</Text>
@@ -141,6 +147,18 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+
+  buttonContainer: {
+    justifyContent: 'flex-start',
+    marginLeft: 20,
+    marginTop: 10,
+  },
+
+  backButton: {
+    width: 30,
+    height: 30,
+    marginRight: 10,
   },
 
   container: {

@@ -67,6 +67,9 @@ export default function ModifyPlan() {
       <View style={styles.mainBox}>
         {/* HEADER */}
         <View style={styles.header}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image source={require('../assets/backButton.png')} style={styles.backButton} />
+          </TouchableOpacity>
           <TouchableOpacity style={styles.userButtom}
             onPress={() => navigation.navigate('ViewUserInfo')}>
             <Image
@@ -100,8 +103,6 @@ export default function ModifyPlan() {
             <Text style={styles.levelTextButton}>Avanzado</Text>
           </TouchableOpacity>
         </View>
-
-        <Text style={styles.currentLevelText}>Nivel actual: Intermedio</Text>
 
         <ScrollView>
           {exercises.map((item) => (
@@ -190,7 +191,12 @@ const styles = StyleSheet.create({
     height: 100,
     alignItems: 'center',
     width: '100%',
-    paddingHorizontal: 10,
+    marginBottom: 20,
+  },
+  backButton: {
+    width: 30,
+    height: 30,
+    marginRight: 10,
   },
   userButtom: {
     width: 70,
@@ -207,14 +213,15 @@ const styles = StyleSheet.create({
   bellImage: {
     width: 25,
     height: 25,
-    marginLeft: 'auto'
+    marginLeft: 'auto',
+    marginRight: 20,
   },
   userRangeLabel: {
     backgroundColor: '#4CAF50',
     borderRadius: 15,
     paddingHorizontal: 10,
     paddingVertical: 3,
-    marginLeft: 20,
+    marginLeft: 10,
   },
   rangeLabelText: {
     fontSize: 14,
@@ -223,7 +230,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 10,
     marginLeft: 5,
     color: '#000',
   },
@@ -264,6 +271,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     marginBottom: 15,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.15,

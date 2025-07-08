@@ -145,14 +145,13 @@ const styles = StyleSheet.create({
         width: 70
     },
     awardIcon: {
-        width: 48,
-        height: 65,
+        width: 45,
+        height: 60,
     },
     awardRightContainer: {
         width: 225,
         justifyContent: 'center',
-        gap: 10,
-        // backgroundColor: '#B9B9B9'
+        gap: 5,
     },
     completeIcon: {
         width: 40,

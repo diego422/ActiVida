@@ -62,9 +62,6 @@ export default function Plan() {
                     <View style={styles.progressRemaining} />
                 </View>
 
-                {/* NIVEL ACTUAL */}
-                <Text style={styles.levelText}>Nivel actual: Intermedio</Text>
-
                 {/* DIAS DEL PLAN */}
                 <ScrollView>
                     {exercises.map((item) => (

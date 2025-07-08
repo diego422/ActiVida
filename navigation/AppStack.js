@@ -20,7 +20,6 @@ export default function AppStack() {
             <Stack.Screen name="Awards" component={AwardsPage} />
             <Stack.Screen name="CompleteChallenges" component={CompleteChallenges} />
             <Stack.Screen name="logIn" component={LogIn} />
-            {/* Falta añadir el de usuario acá */}
         </Stack.Navigator>
     );
 }

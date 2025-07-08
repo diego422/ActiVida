@@ -194,8 +194,9 @@ const styles = StyleSheet.create({
     },
     cardIcon: {
         width: 50,
-        height: 50,
+        height: 52,
         marginRight: 10,
+        alignSelf: 'center'
     },
     cardContent: {
         flex: 1,
@@ -205,7 +206,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#333',
         fontWeight: 'bold',
-        marginBottom: 5,
+        // marginBottom: 5,
     },
     buttonContainer: {
         marginTop: 10,

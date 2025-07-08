@@ -3,8 +3,8 @@ import NavTab from "./NavTab";
 import ModifyPlan from "../screens/modifyPlan";
 import ViewUser from "../screens/viewUser";
 import AwardsPage from "../screens/awards";
-import EditExercise from "../screens/EditExercise";
-import AddExercise from "../screens/AddExercise";
+import EditExercise from "../screens/editExercise";
+import AddExercise from "../screens/addExercise";
 import CompleteChallenges from "../screens/completeChallenges";
 const Stack = createNativeStackNavigator();
 

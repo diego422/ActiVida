@@ -67,7 +67,8 @@ export default function ModifyPlan() {
       <View style={styles.mainBox}>
         {/* HEADER */}
         <View style={styles.header}>
-          <TouchableOpacity style={styles.userButtom}>
+          <TouchableOpacity style={styles.userButtom}
+            onPress={() => navigation.navigate('ViewUserInfo')}>
             <Image
               source={require('../assets/userImage.png')}
               style={styles.userImage}
@@ -293,8 +294,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   actionIcon: {
-    width: 20,
-    height: 20,
+    width: 28,
+    height: 28,
     resizeMode: 'contain',
   },
   addButton: {

@@ -27,9 +27,7 @@ export default function EditExercise() {
   const navigation = useNavigation();
   const { exerciseId } = route.params;
 
-  const [exercise, setExercise] = useState(null);
   const [loading, setLoading] = useState(true);
-
 
   const [dia, setDia] = useState("");
   const [nombre, setNombre] = useState("");
@@ -46,7 +44,6 @@ export default function EditExercise() {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         const data = docSnap.data();
-        setExercise(data);
         setDia(data.dia || "");
         setNombre(data.nombre || "");
         setTiempo(data.tiempo || "");

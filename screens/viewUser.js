@@ -1,14 +1,18 @@
 import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native'
 import React, { Component } from 'react'
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function viewUser() {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.mainBox}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Text>Back</Text>
+                </TouchableOpacity>
                 <View style={styles.header}>
-                    <TouchableOpacity
-                        style={styles.userButtom}
-                        onPress={() => navigation.navigate('ViewUserInfo')}>
+                    <TouchableOpacity style={styles.userButtom}>
                         <Image source={require('../assets/userImage.png')} style={styles.userImage} />
                     </TouchableOpacity>
                     <Text style={styles.userName}>Diego Herrera</Text>
@@ -34,7 +38,9 @@ export default function viewUser() {
                     </View>
                 </View>
                 <View style={styles.stats}>
-                    <TouchableOpacity style={styles.statButtom}>
+                    <TouchableOpacity 
+                    style={styles.statButtom}
+                    onPress={() => navigation.navigate('awards')}>
                         <View style={styles.statButtomLeft}>
                             <Text style={styles.statCardText}>Retos completados</Text>
                         </View>
@@ -217,7 +223,7 @@ const styles = StyleSheet.create({
         marginTop: 30,
         borderColor: '#000',
         borderWidth: 1,
-         shadowColor: '#000',
+        shadowColor: '#000',
         shadowOffset: {
             width: 0,
             height: 2,

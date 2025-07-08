@@ -2,7 +2,7 @@ import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function viewUser() {
+export default function ViewUser() {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
@@ -37,9 +37,8 @@ export default function viewUser() {
                     </View>
                 </View>
                 <View style={styles.stats}>
-                    <TouchableOpacity 
-                    style={styles.statButtom}
-                    onPress={() => navigation.navigate('awards')}>
+                    <TouchableOpacity
+                        style={styles.statButtom}>
                         <View style={styles.statButtomLeft}>
                             <Text style={styles.statCardText}>Retos completados</Text>
                         </View>
@@ -47,7 +46,8 @@ export default function viewUser() {
                             <Text style={[styles.statCardText, { fontWeight: 'bold' }]}>10</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.statButtom}>
+                    <TouchableOpacity style={styles.statButtom}
+                        onPress={() => navigation.navigate('awards')}>
                         <View style={styles.statButtomLeft}>
                             <Text style={styles.statCardText}>Recompensas obtenidas</Text>
                         </View>

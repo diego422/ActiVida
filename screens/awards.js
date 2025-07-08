@@ -11,7 +11,8 @@ export default function AwardsPage() {
                 </TouchableOpacity>
                 <View style={styles.header}>
                     <TouchableOpacity
-                        style={styles.userButtom}>
+                        style={styles.userButtom}
+                             onPress={() => navigation.navigate('ViewUserInfo')}>
                         <Image source={require('../assets/userImage.png')} style={styles.userImage} />
                     </TouchableOpacity>
                     <View style={styles.userRangeLabel}>

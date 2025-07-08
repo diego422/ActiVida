@@ -41,7 +41,8 @@ export default function Plan() {
 
                 {/* HEADER */}
                 <View style={styles.header}>
-                    <TouchableOpacity style={styles.userButtom}>
+                    <TouchableOpacity style={styles.userButtom}
+                        onPress={() => navigation.navigate('ViewUserInfo')}>
                         <Image source={require('../assets/userImage.png')} style={styles.userImage} />
                     </TouchableOpacity>
                     <View style={styles.userRangeLabel}>

@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Image } from "react-native";
+import { Image, Text, View } from "react-native";
 
 import Challenges from "../screens/challenges";
 import Home from "../screens/home";
@@ -25,19 +25,32 @@ export default function NavTab() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: "#1E90FF",
-        tabBarInactiveTintColor: "#888",
+        tabBarShowLabel: true,
         tabBarStyle: {
-          backgroundColor: "#222",
-          borderTopColor: "#333",
+          backgroundColor: "#F5F4F4",
+          borderTopWidth: 0,
+          height: 70,
+          paddingTop: 5,
         },
-        tabBarIcon: ({ color, size }) => (
+        tabBarLabel: ({ focused, color }) => (
+          <Text
+            style={{
+              color: focused ? "#7D9270" : "#000",
+              fontWeight: "bold",
+              fontSize: 12,
+              marginTop: -5,
+            }}
+          >
+            {route.name}
+          </Text>
+        ),
+        tabBarIcon: ({ focused, size }) => (
           <Image
             source={icons[route.name]}
             style={{
-              width: size,
-              height: size,
-              tintColor: color,
+              width: 26,
+              height: 26,
+              tintColor: focused ? "#7D9270" : "#000",
             }}
             resizeMode="contain"
           />
@@ -47,7 +60,7 @@ export default function NavTab() {
       <Tab.Screen name="Inicio" component={Home} />
       <Tab.Screen name="Plan" component={Plan} />
       <Tab.Screen name="Retos" component={Challenges} />
-      {/* <Tab.Screen name="Progreso" component={Progress} /> */}
+      <Tab.Screen name="Progreso" component={Progress} />
     </Tab.Navigator>
   );
 }

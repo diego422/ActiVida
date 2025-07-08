@@ -1,12 +1,16 @@
 import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Challenges() {
+    const navigation = useNavigation();
+    
     return (
         <View style={styles.container}>
             <View style={styles.mainBox}>
                 {/* HEADER */}
                 <View style={styles.header}>
-                    <TouchableOpacity style={styles.userButtom}>
+                    <TouchableOpacity style={styles.userButtom}
+                        onPress={() => navigation.navigate('ViewUserInfo')}>
                         <Image source={require('../assets/userImage.png')} style={styles.userImage} />
                     </TouchableOpacity>
                     <View style={styles.userRangeLabel}>
@@ -78,24 +82,24 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         backgroundColor: 'white',
     },
-   mainBox: {
-    flex: 1,
-    width: '85%',
-    height: '100%',
-    marginTop: 70,
-    backgroundColor: 'white',
-    borderRadius: 15,
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    shadowColor: '#000',
-    shadowOffset: {
-        width: 0,
-        height: 2
+    mainBox: {
+        flex: 1,
+        width: '85%',
+        height: '100%',
+        marginTop: 70,
+        backgroundColor: 'white',
+        borderRadius: 15,
+        paddingHorizontal: 15,
+        paddingVertical: 15,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-},
     header: {
         flexDirection: 'row',
         height: 100,

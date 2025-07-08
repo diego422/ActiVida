@@ -1,13 +1,13 @@
 import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function awardsPage() {
+export default function AwardsPage() {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.mainBox}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Text>Back</Text>
+                    <Image source={require('../assets/backButton.png')} style={styles.backButton} />
                 </TouchableOpacity>
                 <View style={styles.header}>
                     <TouchableOpacity
@@ -20,17 +20,43 @@ export default function awardsPage() {
                     <Image source={require('../assets/bell.png')} style={styles.bellImage} />
                 </View>
                 <Text style={styles.title}>Recompensas</Text>
-                <View style={styles.awards}>
-                    <View style={styles.awardLabel}>
-                        <Text style={styles.planButtomText}>Plan Día 3: Cardio</Text>
-                        <Image source={require('../assets/blueArrow.png')} style={styles.blueArrow} />
+
+                <View style={styles.awardLabel}>
+                    <View style={styles.awardLeftContainer}>
+                        <Image source={require('../assets/medal.png')} style={styles.awardIcon} />
+                    </View>
+                    <View style={styles.awardCenterContainer}>
+                        <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>Comienza tu viaje</Text>
+                        <Text style={styles.awardLabelText}>Completaste el primer reto</Text>
+                    </View>
+                    <View style={styles.awardRightContainer}>
+                        <Image source={require('../assets/completeIcon.png')} style={styles.completeIcon} />
                     </View>
                 </View>
-                <View style={{ alignItems: 'center' }}>
-                    <View style={styles.quoteLabel}>
-                        <Text style={styles.quoteText}>¡Cada paso cuenta! 💪</Text>
+                <View style={styles.awardLabel}>
+                    <View style={styles.awardLeftContainer}>
+                        <Image source={require('../assets/fire.png')} style={styles.awardIcon} />
+                    </View>
+                    <View style={styles.awardCenterContainer}>
+                        <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>Cinco días seguidos</Text>
+                        <Text style={styles.awardLabelText}>Lograste una racha de 5 días</Text>
+                    </View>
+                    <View style={styles.awardRightContainer}>
+                        <Image source={require('../assets/completeIcon.png')} style={styles.completeIcon} />
                     </View>
                 </View>
+                <View style={styles.awardLabel}>
+                        <View style={styles.awardLeftContainer}>
+                            <Image source={require('../assets/trophyLock.png')} style={styles.awardIcon} />
+                        </View>
+                        <View style={styles.awardCenterContainer}>
+                            <Text style={[styles.awardLabelText, { fontWeight: 'bold' }]}>Máxima racha</Text>
+                            <Text style={styles.awardLabelText}>Supera tu mejor racha anterior</Text>
+                        </View>
+                        <View style={styles.awardRightContainer}>
+                            <Image source={require('../assets/lock.png')} style={styles.completeIcon} />
+                        </View>
+                    </View>
             </View>
         </View>
     );
@@ -56,6 +82,12 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
+    },
+    backButton: {
+        width: 30,
+        height: 30,
+        marginLeft: 10,
+        marginTop: 10,
     },
     header: {
         padding: 10,
@@ -85,85 +117,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 5,
-        marginLeft: 12
-    },
-    rangeLabelText: {
-        fontSize: 14,
-    },
-    bellImage: {
-        width: 25,
-        height: 25,
-        marginLeft: 65,
-    },
-    userRangeLabel: {
-        backgroundColor: '#4CAF50',
-        borderRadius: 15,
-        width: 110,
-        height: 22,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 5,
-        marginLeft: 10
-    },
-    rangeLabelText: {
-        fontSize: 14,
-    },
-    title: {
-        color: '#000',
-        fontWeight: 'bold',
-        fontSize: 20,
-        textAlign: 'center',
-        marginTop: 10,
-    },
-    challeges: {
-        width: '100%',
-        height: 180,
-        justifyContent: 'center',
-        marginBottom: 15,
-    },
-    cardsContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 15,
-    },
-    awards: {
-        height: 100,
-        width: '100%',
-        marginBottom: 15,
-    },
-    awardLabel: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: 40,
-        backgroundColor: 'white',
-        marginTop: 15,
-        marginLeft: 20,
-        marginRight: 20,
-        borderRadius: 15,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-        paddingHorizontal: 15,
-    },
-    planButtomText: {
-        fontSize: 18,
-    },
-    blueArrow: {
-        width: 30,
-        height: 30,
-    },
-    cards: {
-        width: 120,
-        height: 120,
-        marginTop: 18,
-        backgroundColor: 'white',
+        marginLeft: 12,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -172,37 +126,63 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-        marginHorizontal: 8,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
-    textCard: {
-        textAlign: 'center',
-        fontSize: 15,
-        marginTop: 5,
-    },
-    statusLabel: {
-        backgroundColor: '#4CAF50',
-        borderRadius: 15,
-        width: 100,
-        height: 22,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 15,
-    },
-    statusLabelText: {
+    rangeLabelText: {
         fontSize: 14,
     },
-    quoteLabel: {
-        backgroundColor: '#4CAF50',
-        borderRadius: 15,
-        width: 200,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
+    bellImage: {
+        width: 30,
+        height: 30,
+        marginLeft: 60,
+    },
+    title: {
+        color: '#000',
+        fontWeight: 'bold',
+        fontSize: 23,
+        textAlign: 'center',
         marginTop: 30,
     },
-    quoteText: {
-        fontSize: 17,
-    }
+    awardLabel: {
+        flexDirection: 'row',
+        height: 120,
+        backgroundColor: 'white',
+        marginTop: 30,
+        marginLeft: 20,
+        marginRight: 20,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    awardLeftContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 70
+    },
+    awardIcon: {
+        width: 45,
+        height: 45,
+    },
+    awardCenterContainer: {
+        width: 185,
+        justifyContent: 'center',
+        gap: 15,
+    },
+    awardRightContainer: {
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        width: 20,
+        marginBottom: 10,
+    },
+    completeIcon: {
+        width: 40,
+        height: 40,
+    },
+    awardLabelText: {
+        fontSize: 19,
+    },
 });

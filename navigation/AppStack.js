@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import NavTab from "./NavTab";
 import ModifyPlan from "../screens/modifyPlan";
 import viewUser from "../screens/viewUser";
-import awardsPage from "../screens/awards";
+import AwardsPage from "../screens/awards";
 const Stack = createNativeStackNavigator();
 
 export default function AppStack() {
@@ -11,7 +11,7 @@ export default function AppStack() {
             <Stack.Screen name="Tabs" component={NavTab} />
             <Stack.Screen name="ModifyPlan" component={ModifyPlan} />
             <Stack.Screen name="ViewUserInfo" component={viewUser} />
-            <Stack.Screen name="awards" component={awardsPage} />
+            <Stack.Screen name="awards" component={AwardsPage} />
             {/* Falta añadir el de usuario acá */}
         </Stack.Navigator>
     );
